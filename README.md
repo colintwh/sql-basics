@@ -17,21 +17,34 @@
 ### Sample Database
 
    To facilitate the learning process, we'll be using a sample DVD rental database for PostgreSQL, which can be obtained from this site [here](https://www.postgresqltutorial.com/postgresql-sample-database/). You can download the sample database and load it onto your database server. 
+   
 
 ## Contents:
 
-   The basic concepts you'll need to write SQL statements are organised in the following chapters hosted on GitHub:
+   The basic concepts you'll need to write SQL statements are organised in the following chapters, in the form of Jupyter Notebooks, hosted on GitHub:
    
-   + Creating/Populating a Database
-   + Query Primer: `SELECT`, `FROM`, `WHERE`, `GROUP BY`, `ORDER BY`
-   + Filtering
-   + Querying Multiple Tables: `JOIN`
-   + Working with Sets
-   + Data Generation, Conversion, and Manipulation
-   + Grouping and Aggregates
-   + Subqueries
-   + Conditional Logic
-   + Transactions
-   + Indexes and Constraints
-   + Views
-   + Metadata
+   + [Querying Data](https://github.com/colintwh/sql-basics/blob/master/querydata.ipynb)
+   + *work in progress..*
+   
+   
+### Configuring Jupyter Notebooks to run SQL
+
+   To demonstrate running of SQL examples, I have configured to use these Python Jupyter Notebooks to execute SQL statements directly. To begin, you'll need to install `ipython-sql` and import `sqlalchemy` module in your environment which you have launch Jupyter Notenbook from. You will also need to install the required DBAPI (shorthand for *Python Database API Specification*) package to connect to your database server. As I'll be using PostgreSQL, the `psycopg2` DBAPI package is thus needed. You can refer to this site [here](https://docs.sqlalchemy.org/en/13/core/engines.html) for more details.
+   
+   
+### Running SQL statements
+
+   In order to run SQL codes on this Jupyter Notebook, I've first created the engine needed to connect to the database. This will be requierd only once per connection string - meaning you won't have to do it each time when making a connection. The engine is the starting point for any SQLAlchemy application. The general structure how the SQLAlchemy application connects to the database can be illustrated as follows:
+
+![alt text](https://docs.sqlalchemy.org/en/13/_images/sqla_engine_arch.png)
+
+Following are the steps needed to setup connection to the database from the Jupyter NoteBook:
+   
+    !pip install ipython-sql
+    !pip install psycopg2
+
+    import sqlalchemy
+    sqlalchemy.create_engine('postgresql://postgres:password@localhost/mydatabase')
+    
+    %load_ext sql
+    %sql postgresql://postgres:password@localhost/dvdrental
