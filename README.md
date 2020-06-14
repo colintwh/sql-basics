@@ -2,7 +2,7 @@
 
    This site seeks to introduce the basics of the SQL query language. The goal of this site serves as a reference source for those (myself included) who needs to recall some of the basic concepts in SQL. It also serves as a learning site for those who want to pick up basics of programming quickly.
 
-   You'll need to have a database server and a client tool to connect to your database installed on your computer to run the codes. We will be using PostgreSQL, a free and open-source database, though you are free to use other relational database products such as MySQL. The majority of SQL codes in the notebooks on this site should work similarly on other SQL-compliant databases. 
+   You'll need to have a database server and a client tool to connect to your database installed on your computer to run the codes. In the code examples, I'll be using PostgreSQL, a free and open-source database, though you are free to use other relational database products such as MySQL. The majority of SQL codes in the notebooks on this site should work similarly on other SQL-compliant databases. 
 
 ### Why Learn SQL?
 
@@ -11,12 +11,12 @@
    
 ### Installing PostgresSQL
 
-   At the time of this writing, the latest version of PostgreSQL is 12. PostgreSQL works on major operating systems - Windows, macOS and popular Linux variants including Red Hat and Ubuntu. To install PostgreSQL on your computer, refer to the official site [here](https://www.postgresql.org/download/) and follow the instructions dedicated for your operation system. For client tools, the PostgreSQL installation package already includes psql, a terminal-based front-end for PostgreSQL database. For GUI-based client tools, there are several options available, amongst which is pgadmin4, a popular choice which you can download from the official site [here](https://www.pgadmin.org/download/)
+   At the time of this writing, the latest version of PostgreSQL is 12. PostgreSQL works on major operating systems - Windows, macOS and popular Linux variants including Red Hat and Ubuntu. To install PostgreSQL on your computer, refer to the official site [here](https://www.postgresql.org/download/) and follow the instructions dedicated for your operating system. For client tools, the PostgreSQL installation package already includes psql, a terminal-based front-end for PostgreSQL database. For GUI-based client tools, there are several options available, amongst which is pgadmin4, a popular choice which you can download from the official site [here](https://www.pgadmin.org/download/)
 
 
 ### Sample Database
 
-   To facilitate the learning process, we'll be using a sample DVD rental database for PostgreSQL, which can be obtained from this site [here](https://www.postgresqltutorial.com/postgresql-sample-database/). You can download the sample database and load it onto your database server. 
+   To facilitate the learning process, I'll be using a sample DVD rental database for PostgreSQL, which can be obtained from this site [here](https://www.postgresqltutorial.com/postgresql-sample-database/). You can download the sample database and load it onto your database server. 
    
 
 ## Contents:
@@ -27,9 +27,11 @@
    + *work in progress..*
    
    
-### Configuring Jupyter Notebooks to run SQL
+---
 
-   To demonstrate running of SQL examples, I have configured to use these Python Jupyter Notebooks to execute SQL statements directly. To begin, you'll need to install `ipython-sql` and import `sqlalchemy` module in your environment which you have launch Jupyter Notenbook from. You will also need to install the required DBAPI (shorthand for *Python Database API Specification*) package to connect to your database server. As I'll be using PostgreSQL, the `psycopg2` DBAPI package is thus needed. You can refer to this site [here](https://docs.sqlalchemy.org/en/13/core/engines.html) for more details.
+### Configuring Jupyter Notebooks as an SQL-client tool
+
+   To demonstrate the running of SQL examples, I have configured to use these Jupyter Notebooks to execute SQL statements directly. To begin, you'll need to install `ipython-sql` and import `sqlalchemy` module in your environment which you have launch Jupyter Notebook from. You will also need to install the required DBAPI (shorthand for *Python Database API Specification*) package to connect to your database server. As I'll be using PostgreSQL, the `psycopg2` DBAPI package is thus needed. You can refer to this site [here](https://docs.sqlalchemy.org/en/13/core/engines.html) for more details.
    
    
 ### Running SQL statements
@@ -38,7 +40,7 @@
 
 ![alt text](https://docs.sqlalchemy.org/en/13/_images/sqla_engine_arch.png)
 
-Following are the steps needed to setup connection to the database from the Jupyter NoteBook:
+Following are the steps needed to setup connection to the database from the Jupyter NoteBook (you need to replace the parameters within the `sqlalchemy.create_engine()` method to suit to your own database connection):
    
     !pip install ipython-sql
     !pip install psycopg2
@@ -46,5 +48,3 @@ Following are the steps needed to setup connection to the database from the Jupy
     import sqlalchemy
     sqlalchemy.create_engine('postgresql://postgres:password@localhost/mydatabase')
     
-    %load_ext sql
-    %sql postgresql://postgres:password@localhost/dvdrental
