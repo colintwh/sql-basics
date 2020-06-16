@@ -24,6 +24,7 @@
    The basic concepts you'll need to write SQL statements are organised in the following chapters, in the form of Jupyter Notebooks, hosted on GitHub:
    
    + [Querying Data](https://github.com/colintwh/sql-basics/blob/master/querydata.ipynb)
+   + [Filtering Data](https://github.com/colintwh/sql-basics/blob/master/filterdata.ipynb)
    + *work in progress..*
    
    
