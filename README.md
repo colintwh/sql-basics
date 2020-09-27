@@ -1,6 +1,6 @@
 # SQL Basics
 
-   This site seeks to introduce the basics of SQL (or Standard Query Language). The goal of this site serves as a reference source for those (myself included) who needs to recall some of the basic concepts in SQL. It also serves as a learning site for those who want to pick up basics of programming quickly.
+   This site seeks to introduce the basics of SQL (or Standard Query Language). The goal of this site serves as a reference source for those (myself included) who needs to recall some of the basic concepts in SQL. It also serves as a learning site for those who want to pick up basics of SQL quickly.
 
    You'll need to have a database server and a client tool to connect to your database installed on your computer to run the codes. In the code examples, I'll be using PostgreSQL, a free and open-source database, though you are free to use other relational database products such as MySQL. The majority of SQL codes in the notebooks on this site should work similarly on other SQL-compliant databases. 
 
